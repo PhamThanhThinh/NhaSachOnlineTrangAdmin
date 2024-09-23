@@ -4,10 +4,11 @@ using NhaSachOnlineTrangAdmin.Repositories.Abstract;
 
 namespace NhaSachOnlineTrangAdmin.Controllers
 {
-  public class GenreController : Controller
+  public class PublisherController : Controller
   {
-    private readonly IGenreService service;
-    public GenreController(IGenreService service)
+    private readonly IPublisherService service;
+
+    public PublisherController(IPublisherService service)
     {
       this.service = service;
     }
@@ -18,7 +19,7 @@ namespace NhaSachOnlineTrangAdmin.Controllers
     }
 
     [HttpPost]
-    public IActionResult Add(Genre model)
+    public IActionResult Add(Publisher model)
     {
       if (!ModelState.IsValid)
       {
@@ -28,10 +29,10 @@ namespace NhaSachOnlineTrangAdmin.Controllers
       if (result)
       {
         TempData["msg"] = "Thêm Thành Công";
-        //return RedirectToAction(nameof(Add));
         return RedirectToAction("Add");
       }
-      return View();
+      TempData["msg"] = "Đã xảy ra lỗi. Vui lòng kiểm tra lại.";
+      return View(model);
     }
 
     public IActionResult GetAll()
@@ -47,7 +48,7 @@ namespace NhaSachOnlineTrangAdmin.Controllers
     }
 
     [HttpPost]
-    public IActionResult Update(Genre model)
+    public IActionResult Update(Publisher model)
     {
       if (!ModelState.IsValid)
       {
@@ -62,14 +63,6 @@ namespace NhaSachOnlineTrangAdmin.Controllers
       TempData["msg"] = "Đã xảy ra lỗi. Vui lòng kiểm tra lại.";
       return View(model);
     }
-
-    // chức năng xóa thì dùng 1 trong 2 cách code sau:
-
-    //public IActionResult Delete(int id)
-    //{
-    //  var result = service.Delete(id);
-    //  return RedirectToAction("GetAll");
-    //}
 
     public IActionResult Delete(int id) => RedirectToAction("GetAll", new { result = service.Delete(id) });
   }

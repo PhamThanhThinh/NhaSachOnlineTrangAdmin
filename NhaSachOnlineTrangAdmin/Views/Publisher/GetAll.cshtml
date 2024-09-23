@@ -1,20 +1,20 @@
-﻿@model IEnumerable<NhaSachOnlineTrangAdmin.Models.Domain.Genre>
+﻿@model IEnumerable<NhaSachOnlineTrangAdmin.Models.Domain.Publisher>
 
 <div class="container pt-5">
   <div class="row">
     <div class="col-md-6">
-      <a href="/Genre/Add" class="btn btn-primary">
-        <i class="bi bi-list"></i> Thêm Thể Loại
+      <a href="/Publisher/Add" class="btn btn-primary">
+        <i class="bi bi-list"></i> Thêm Nhà Xuất Bản
       </a>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h3>Danh sách các thể loại</h3>
+      <h3>Danh sách các nhà xuất bản</h3>
       <table class="table table-striped table-bordered table-dark">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Publisher Name</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -22,12 +22,12 @@
           @foreach (var item in Model)
           {
             <tr>
-              <td>@item.Name</td>
+              <td>@item.PublisherName</td>
               <td>
-                <a href="/Genre/Update?id=@item.Id" class="btn btn-primary">
+                <a href="/Publisher/Update?id=@item.Id" class="btn btn-primary">
                   Update
                 </a>
-                <a href="/Genre/Delete?id=@item.Id" class="btn btn-danger" onclick="return window.confirm('Bạn có chắc chắn muốn xóa không?')">
+                <a href="/Publisher/Delete?id=@item.Id" class="btn btn-danger" onclick="return window.confirm('Bạn có chắc chắn muốn xóa không?')">
                   Delete
                 </a>
               </td>
