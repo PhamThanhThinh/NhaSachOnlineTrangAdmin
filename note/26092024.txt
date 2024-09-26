@@ -1,0 +1,4 @@
+DisplayName được khai báo trong file BookViewModel
+
+add-migration
+update-database
