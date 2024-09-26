@@ -3,8 +3,10 @@
 <div class="container pt-5">
   <div class="row">
     <div class="col-md-6">
-      <h3>Thêm Thông Tin Của Sách</h3>
-      <form asp-action="Add" method="post">
+      <h3>Cập Nhật Thông Tin Sách</h3>
+      <form asp-action="Update" method="post">
+        @* <input type="hidden" class="form-control" asp-for="Id" /> *@
+        
         <div class="form-group">
           <label asp-for="Title">Tiêu Đề Của Cuốn Sách *</label>
           <input type="text" class="form-control" asp-for="Title" />
@@ -21,9 +23,6 @@
           <span asp-validation-for="GenreId" class="text-danger"></span>
         </div>
 
-        @* mã xuất bản của cuốn sách
-        978-90-274-3964-2
-        *@
         <div class="form-group">
           <label asp-for="Isbn">Mã Xuất Bản *</label>
           <input type="text" class="form-control" asp-for="Isbn" />
@@ -64,12 +63,8 @@
         }
 
         <div class="form-group pt-3">
-          <button type="submit" class="btn btn-dark">
-            <i class="bi bi-save"></i> Thêm
-          </button>
-          <a href="/Book/GetAll" class="btn btn-primary">
-            <i class="bi bi-list"></i> Xem danh sách
-          </a>
+          <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i> Save</button>
+          <a href="/Book/GetAll" class="btn btn-primary"> <i class="bi bi-list"></i>List</a>
         </div>
 
       </form>
